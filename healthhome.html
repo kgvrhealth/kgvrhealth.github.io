@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KGVR Health</title>
+
+  <style>
+    @font-face {
+      font-family: "The Seasons";
+      src: url("assets/the-seasons.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --white: #ffffff;
+      --black: #111111;
+
+      --glass: rgba(255, 255, 255, 0.18);
+      --glass-border: rgba(255, 255, 255, 0.42);
+
+      /* Grey wash over hero image */
+      --hero-wash: rgba(70, 68, 65, 0.50);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: #ffffff;
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       FROSTED GLASS MENU BAR
+       ========================= */
+
+    .masthead {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      z-index: 100;
+
+      width: 100%;
+      height: 52px;
+
+      padding: 0 22px 0 54px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(255, 255, 255, 0.18);
+
+      border-bottom: 1px solid var(--glass-border);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .wordmark {
+      margin: 0;
+
+      color: #ffffff;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+
+      line-height: 1;
+      letter-spacing: -0.04em;
+
+      white-space: nowrap;
+
+      text-shadow:
+        0 1px 5px rgba(0, 0, 0, 0.25);
+    }
+
+    .menu-label {
+      margin: 0;
+
+      color: #ffffff;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 8px;
+      font-weight: 400;
+
+      line-height: 1;
+
+      letter-spacing: 0.02em;
+
+      white-space: nowrap;
+
+      text-shadow:
+        0 1px 5px rgba(0, 0, 0, 0.25);
+    }
+
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero-section {
+      position: relative;
+
+      width: 100%;
+      min-height: 100vh;
+
+      overflow: hidden;
+      isolation: isolate;
+
+      background: #77716c;
+    }
+
+
+    /* =========================
+       HERO IMAGE
+       ========================= */
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+
+      z-index: -3;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center 56%;
+
+      filter:
+        saturate(0.63)
+        brightness(0.88);
+
+      transform: scale(1.012);
+    }
+
+
+    /* =========================
+       GREY 50% WASH
+       ========================= */
+
+    .hero-wash {
+      position: absolute;
+      inset: 0;
+
+      z-index: -2;
+
+      background: var(--hero-wash);
+
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       HERO CONTENT
+       ========================= */
+
+    .hero-layout {
+      position: relative;
+
+      width: 100%;
+      min-height: 100vh;
+
+      display: grid;
+
+      grid-template-columns:
+        200px
+        minmax(230px, 1fr);
+
+      gap: 13px;
+
+      align-items: start;
+
+      padding:
+        78px 23px 17px;
+    }
+
+
+    /* =========================
+       WHO ARE WE PANEL
+       ========================= */
+
+    .identity-panel {
+      height: 264px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.72);
+
+      background:
+        rgba(78, 72, 67, 0.15);
+
+      box-shadow:
+        inset 0 0 30px rgba(255, 255, 255, 0.035);
+    }
+
+    .identity-line {
+      margin: 0;
+
+      color: #ffffff;
+
+      font-family:
+        "The Seasons",
+        Georgia,
+        serif;
+
+      font-weight: 400;
+
+      font-size:
+        clamp(3.45rem, 7.8vw, 4.08rem);
+
+      line-height: 1.14;
+
+      letter-spacing: -0.07em;
+
+      text-shadow:
+        0 1px 6px rgba(0, 0, 0, 0.18);
+    }
+
+
+    /* =========================
+       COPY
+       ========================= */
+
+    .copy-panel {
+      max-width: 315px;
+
+      padding: 8px 0 0;
+
+      color: #ffffff;
+
+      text-shadow:
+        0 1px 4px rgba(25, 22, 20, 0.3);
+    }
+
+    .copy-panel p {
+      margin: 0;
+    }
+
+    .copy-primary {
+      max-width: 294px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .copy-secondary {
+      max-width: 298px;
+
+      margin-top: 20px !important;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 620px) {
+
+      .masthead {
+        height: 52px;
+
+        padding:
+          0 19px;
+      }
+
+      .hero-section {
+        min-height: 100vh;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+        padding:
+          76px 20px 32px;
+      }
+
+      .identity-panel {
+        width: min(100%, 300px);
+
+        height: 255px;
+      }
+
+      .copy-panel,
+      .copy-primary,
+      .copy-secondary {
+        max-width: 100%;
+      }
+
+      .copy-panel {
+        padding: 0;
+      }
+
+      .copy-secondary {
+        margin-top: 18px !important;
+      }
+
+      .hero-image {
+        object-position: 57% center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- FROSTED MENU -->
+
+  <header class="masthead">
+
+    <h1 class="wordmark">
+      KGVR HEALTH
+    </h1>
+
+    <p class="menu-label">
+      MENU
+    </p>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section
+      class="hero-section"
+      aria-label="About KGVR Health"
+    >
+
+      <!--
+        ADD THE HOSPITAL IMAGE LATER:
+
+        <img
+          class="hero-image"
+          src="assets/ward.jpg"
+          alt="KGVR Health hospital ward"
+        >
+      -->
+
+
+      <!-- 50% GREY WASH -->
+
+      <div
+        class="hero-wash"
+        aria-hidden="true"
+      ></div>
+
+
+      <div class="hero-layout">
+
+
+        <!-- WHO ARE WE -->
+
+        <section
+          class="identity-panel"
+          aria-label="Who we are"
+        >
+
+          <p class="identity-line">
+            WHO
+          </p>
+
+          <p class="identity-line">
+            ARE
+          </p>
+
+          <p class="identity-line">
+            WE
+          </p>
+
+        </section>
+
+
+        <!-- DESCRIPTION -->
+
+        <section
+          class="copy-panel"
+          aria-label="Our health mission"
+        >
+
+          <p class="copy-primary">
+            KGVR Health is built around a simple idea:
+            better health begins with better understanding.
+            We bring together trusted knowledge, practical
+            resources, and forward-thinking ideas to help
+            people understand their health and make more
+            informed decisions.
+          </p>
+
+          <p class="copy-secondary">
+            Through education, wellness, innovation, and
+            accessible health information, we aim to make
+            the path toward healthier lives clearer and
+            more meaningful.
+          </p>
+
+        </section>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
